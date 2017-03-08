@@ -1,0 +1,18 @@
+---
+- name: make gfs dir
+  command: "{{ item }}"
+  with_items:
+    - pvcreate /dev/sdb
+    - vgcreate vg_gluster /dev/sdb
+    - lvcreate -L 20480M -n brick1 vg_gluster
+    - lvcreate -L 20476M -n brick2 vg_gluster
+    - mkfs.xfs /dev/vg_gluster/brick1
+    - mkfs.xfs /dev/vg_gluster/brick2
+    - mkdir -p /bricks/brick1
+    - mkdir -p /bricks/brick2
+- name: echo
+  shell: echo "/dev/vg_gluster/brick1  /bricks/brick1    xfs     defaults    0 0" >> /etc/fstab
+- name: echo2
+  shell: echo "/dev/vg_gluster/brick2  /bricks/brick2    xfs     defaults    0 0" >> /etc/fstab
+- name: mount
+  shell: mount -a

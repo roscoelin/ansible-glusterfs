@@ -1,0 +1,7 @@
+---    
+   - name: install apache 
+     yum: name=httpd update_cache=yes state=latest
+
+   - name: restart apache
+     service: name=httpd state=restarted
+

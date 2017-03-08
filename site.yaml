@@ -1,0 +1,15 @@
+---
+- hosts: centos
+  become: yes
+  become_method: sudo
+  roles:
+    - copy
+    - packages
+
+- hosts: glusterfs
+  become: yes
+  become_method: sudo
+  roles:
+    - glusterfs
+    - createvolume
+

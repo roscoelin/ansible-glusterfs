@@ -1,0 +1,6 @@
+10.10.168.90	ansible_port=22	ansible_user=root
+10.10.168.91	ansible_port=22	ansible_user=root
+10.10.168.97	ansible_port=22	ansible_user=root
+10.10.168.74	ansible_port=22	ansible_user=root
+10.10.168.88	ansible_port=22	ansible_user=root
+10.10.168.98	ansible_port=22	ansible_user=root
