@@ -1,0 +1,4 @@
+---
+- name: test
+  template:
+    src=variables.j2 dest=/tmp/

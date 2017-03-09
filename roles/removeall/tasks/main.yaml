@@ -1,0 +1,15 @@
+---
+- name: grep
+  shell: grep -v "vg_gluster" /etc/fstab > /tmp/fstab
+- name: move
+  shell: mv -f /tmp/fstab /etc
+- name: mount
+  shell: umount /bricks/brick1; umount /bricks/brick2
+- name: remove storage
+  command: "{{ item }}"
+  with_items:
+    - rm -fr /bricks
+    - lvremove -f /dev/vg_gluster/brick1
+    - lvremove -f /dev/vg_gluster/brick2
+    - vgremove -f vg_gluster
+    - pvremove -f /dev/sdb

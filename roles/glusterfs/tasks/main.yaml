@@ -1,8 +1,10 @@
 ---
+- name: install glusterfs38 
+  yum: name="centos-release-gluster38" update_cache="yes" state="latest" 
+
 - name: install glusterfs
   yum:
     name: 
-      - centos-release-gluster38
       - glusterfs
       - glusterfs-libs
       - glusterfs-server
@@ -16,10 +18,10 @@
     enabled: true
 
 - name: allow connection
-      command: "{{ item }}"
-      with_items:
-        - firewall-cmd --zone=public --add-port=49152/tcp --permanent
-        - firewall-cmd --zone=public --add-port=24007-24008/tcp --permanent
+  command: "{{ item }}"
+  with_items:
+    - firewall-cmd --zone=public --add-port=49152/tcp --permanent
+    - firewall-cmd --zone=public --add-port=24007-24008/tcp --permanent
 
 - name: restart firewall
   service:

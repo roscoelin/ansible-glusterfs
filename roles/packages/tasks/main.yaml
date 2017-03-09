@@ -2,6 +2,5 @@
    - name: upgrade all packages
      yum: name=* state=latest
 
-   - name: install python
-     yum: name=python update_cache=yes state=latest      
-
+   - name: install 
+     yum:  name=python update_cache=yes state=latest      

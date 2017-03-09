@@ -1,0 +1,14 @@
+---
+- name: stop glusterfs
+  systemd:
+    name: glusterd
+    state: stopped
+    enabled: no
+
+- name: remove glusterfs
+  yum:
+    name: 
+      - glusterfs
+      - glusterfs-libs
+      - glusterfs-server
+    state: absent
