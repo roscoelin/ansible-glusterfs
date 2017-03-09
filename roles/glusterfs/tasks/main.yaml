@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 - name: install glusterfs38 
   yum: name="centos-release-gluster38" update_cache="yes" state="latest" 
+=======
+- name: install glusterfs38
+  yum: name="centos-release-gluster38" update_cache="yes" state="latest"
+>>>>>>> 30e6fd5e8abbec29e8ff4cef0af3349429f317e9
 
 - name: install glusterfs
   yum:

@@ -1,7 +1,6 @@
 ---
-- hosts: glusterfs
+- hosts: gluster2
   become: yes
   become_method: sudo
   roles:
-    - glusterfs
-
+    - removegluster
