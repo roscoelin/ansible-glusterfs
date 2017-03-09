@@ -1,8 +1,10 @@
 ---
+- name: install glusterfs38
+  yum: name="centos-release-gluster38" update_cache="yes" state="latest"
+
 - name: install glusterfs
   yum:
     name: 
-      - centos-release-gluster38
       - glusterfs
       - glusterfs-libs
       - glusterfs-server
